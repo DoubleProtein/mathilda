@@ -1,0 +1,29 @@
+notes文件夹用来临时记录一些任务，方便其他开发者看。后期这些东西会转移到托管平台。
+
+##########  date：2018-9-25  author：夏胜明  ####################
+
+### work note：Anko
+    * Anko是一个Kotlin库，可以更快，更轻松地开发Android应用程序。它使您的代码清晰易读，让您忘记Android SDK for Java的粗糙边缘。 版本0.10.6具有卫星0.10.6-eap-13，其意图与Kotlin 1.3一起使用并释放kotlinx.coroutines。随意尝试并提供任何反馈。
+        Anko由几部分组成：
+            Anko Commons：一个轻量级的库，里面包含用于意图，对话，日志记录等的帮助程序;
+            Anko Layouts：一种编写动态Android布局的快速且类型安全的方法;
+            Anko SQLite：Android SQLite的查询DSL和解析器集合;
+            Anko Coroutines：基于kotlinx.coroutines库的实用程序。
+        from anko github README
+
+    * 导入anko库，参见app.gradle
+
+### work note: 新建base module
+    * 目的：将一些基础公共的东西封装于此
+
+### work note：增加retrofit库并编写请求接口
+    * kotlin中的接口和java 8中的接口类似，都是使用interface关键字定义，允许方法有默认实现
+    * kotlin中注解用annotation，java中为@interface，java 注解在 kotlin 中是完全兼容的，所以retrofit的方法属性可以直接用。
+    * object 关键字：
+        用法1：使用object关键字替代class关键字就可以声明一个单例对象
+        用法2：代替家java中的static关键字
+    * 内联扩展函数之apply:
+        整体作用功能和run函数很像，唯一不同点就是它返回的值是对象本身，而run函数是一个闭包形式返回，返回的是最后一行的值。
+        正是基于这一点差异它的适用场景稍微与run函数有点不一样。apply一般用于一个对象实例初始化的时候，需要对对象中的属性进行赋值。
+        或者动态inflate出一个XML的View的时候需要给View绑定数据也会用到，这种情景非常常见。特别是在我们开发中会有一些数据model向
+        View model转化实例化的过程中需要用到。
